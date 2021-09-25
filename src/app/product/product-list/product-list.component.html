@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 my-5" *ngFor="let product of products" >
+      <div class="card">
+        <img [src]="product.images" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <p class="card-text">Price: {{(product.sale === 0) ? product.price : (product.price-(product.price*product.sale/100)) }}</p>
+          <p class="card-text">Sale: {{product.sale}}%</p>
+          <!-- <button type="button" (click)="onSelect(product)">Detail</button> -->
+          <a routerLink="/product/detail/{{product.id}}">Detail</a> &nbsp;
+          <a routerLink="/product/edit/{{product.id}}">Edit</a> &nbsp;
+          <a href="javascript:void(0)" (click)="deleteDate(product.id)" >Delete</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
